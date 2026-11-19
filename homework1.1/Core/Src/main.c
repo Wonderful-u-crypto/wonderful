@@ -97,8 +97,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
-		HAL_Delay(250);
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_RESET); //turn up
+		HAL_Delay(250); //0.5T
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_SET); //turn down
+		HAL_Delay(250); //0.5T
   }
   /* USER CODE END 3 */
 }
