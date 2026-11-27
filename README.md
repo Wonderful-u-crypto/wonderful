@@ -1,8 +1,17 @@
 二阶段培训：
-第一次培训：
+第一次培训作业-homework1：
 homework1.1完成的是作业1：
 用HAL_Delay(250)实现亮/暗状态的维持以实现周期500ms，用HAL_GPIO_ReadPin确定PA5的电平高低，用HAL_GPIO_WritePin实现亮暗切换
 homework1.2完成的是作业2：
 用HAL_TIM_Base_Start_IT启动计时器TIM2，用TIM2实现中断，用HAL_TIM_PeriodElapsedCallback实现中断后亮暗状态的切换以实现闪烁
 homework1.3完成的是作业3：
 用HAL_GetTick()计录当前时间，用count记录按下按钮的时间，用flag记录是否已经调整过灯的亮灭，用HAL_GPIO_EXIT_Callback实现在按下开关（PB12电平突然降低）后启动20ms的中断
+
+第二次培训作业-homework2：
+homework2.1完成的是作业1：
+用HAL_TIM_Base_Start_IT启动计时器TIM2，用TIM2实现中断，用HAL_TIM_PeriodElapsedCallback实现如下内容：
+是否按开关：previous&now pb12引脚的电位是否变化；whether_click记录之前是1否0已经按下，以判断现在是开始/结束按
+消抖：noshake_time和count的差值>20ms
+长短按判断：start_click_time和count的差值与1000ms（1s）比较
+短按：每按一下翻转一次引脚电平
+长按：用whether_blingbling记录是1否0已经在闪，以判断现在是灭掉还是开闪；每100ms翻转引脚电平（写在外面！！！因为开闪之后在下一次长按前要一直闪）
